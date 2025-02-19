@@ -1,9 +1,21 @@
 import { useState } from "react";
+import { useContext } from "react";
+import { DataContext } from "../context";
 
 export default function EducationDetails() {
+  const { cvData, setCvData } = useContext(DataContext);
   const [formValues, setFormValues] = useState([
     { name: "", stream: "", CGPA: "", EndDate: "" },
   ]);
+  let handleSubmit = (event) => {
+    event.preventDefault();
+
+    console.log(formValues); // Logs the form data
+    setCvData((prevData) => ({
+      ...prevData,
+      educationDetails: formValues,
+    }));
+  };
 
   let handleChange = (i, e) => {
     let newFormValues = [...formValues];
@@ -36,7 +48,7 @@ export default function EducationDetails() {
           Add
         </button>
       </div>
-      <div id="education-details-items">
+      <form id="education-details-items" onSubmit={handleSubmit}>
         {formValues.map((element, index) => (
           <div className="ed-inpts" key={index}>
             <label>Institute Name</label>
@@ -63,22 +75,24 @@ export default function EducationDetails() {
             <label>End Date</label>
             <input
               type="date"
-              name="endDate"
-              value={element.endDate || ""}
+              name="EndDate"
+              value={element.EndDate || ""}
               onChange={(e) => handleChange(index, e)}
             />
-            {index ? (
-              <button
-                type="button"
-                className="button remove"
-                onClick={() => removeFormFields(index)}
-              >
-                Remove
-              </button>
-            ) : null}
+
+            <button
+              type="button"
+              className="button remove"
+              onClick={() => removeFormFields(index)}
+            >
+              Remove
+            </button>
           </div>
         ))}
-      </div>
+        <button className="button submit" type="submit" id="education-sbmt">
+          Submit
+        </button>
+      </form>
     </div>
   );
 }

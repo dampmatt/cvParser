@@ -1,9 +1,9 @@
 // import { useState } from "react";
-import PersonalDetails from "./PersonalDetails";
-import EducationDetails from "./EducationDetails";
-import Projects from "./Projects";
-import Achievements from "./Achievements";
-import TechnicalSkills from "./TechnicalSkills";
+import PersonalDetails from "./details/PersonalDetails";
+import EducationDetails from "./details/EducationDetails";
+import Projects from "./details/Projects";
+import Achievements from "./details/Achievements";
+import TechnicalSkills from "./details/TechnicalSkills";
 
 export default function DetailsDiv() {
   return (

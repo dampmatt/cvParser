@@ -116,9 +116,39 @@ input {
   width: 50%;
   margin: 12px 24px;
   box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.3);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  div {
+    padding: 3vh 2vw;
+    width: 100%;
+  }
 }
 
 #btns {
   display: flex;
   gap: 1vw;
+}
+
+#education-sbmt {
+  align-self: flex-end;
+  justify-self: center;
+}
+#cv-personal-detail {
+  text-align: center;
+}
+
+.institution-heading {
+  /* padding-top: 15px; */
+  display: flex;
+  justify-content: space-between;
+  list-style: none;
+  font-size: 1rem;
+}
+
+.degree-sub-details {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.8rem;
+  list-style: none;
 }
