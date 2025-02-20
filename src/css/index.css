@@ -21,6 +21,7 @@ body {
 
   min-width: 320px;
   min-height: 100vh;
+  font-family: "Ubuntu", serif;
 }
 #nav-container {
   display: flex;
@@ -151,4 +152,65 @@ input {
   justify-content: space-between;
   font-size: 0.8rem;
   list-style: none;
+}
+
+#project-items,
+#achv-items {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 2vw;
+}
+
+.pj-inputs {
+  display: flex;
+  flex-direction: column;
+  /* background-color: red; */
+  gap: 5px;
+}
+
+.submit.button {
+  align-self: flex-end;
+}
+
+.achv-inputs {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  gap: 5px;
+
+  /* background-color: #1a1a1a; */
+}
+
+#technical-skills {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+}
+.skills-inpt {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+}
+
+#skills {
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  margin: 0;
+
+  div {
+    padding-bottom: 5px;
+    margin: 0;
+
+    font-size: 1.2rem;
+
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 10px;
+    p {
+      font-weight: 300;
+    }
+  }
 }

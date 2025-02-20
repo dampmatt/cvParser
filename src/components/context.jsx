@@ -7,7 +7,8 @@ export function DataProvider({ children }) {
     personalDetails: {},
     educationDetails: [],
     projects: [],
-    skills: [],
+    achievements: [],
+    skills: {},
   });
 
   return (

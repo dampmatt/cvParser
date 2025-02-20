@@ -21,6 +21,16 @@ const formatDate = (dateString) => {
   return ` ${monthNames[month - 1]}, ${year}`;
 };
 
+function ListItem({ text }) {
+  console.log(text);
+  const sentence = text
+    .split(".")
+    .map((sentence) => sentence.trim())
+    .filter((sentence) => sentence.length > 0);
+
+  return sentence.map((item, index) => <li key={index}>{item}.</li>);
+}
+
 export default function CVDiv() {
   const { cvData } = useContext(DataContext);
 
@@ -75,14 +85,54 @@ export default function CVDiv() {
       <div id="cv-projects">
         <h3>Projects</h3>
         <hr />
+        {cvData.projects?.length > 0 &&
+          cvData.projects.map((pjs, index) => (
+            <div className="cv-pj-item" key={index}>
+              <h1>
+                <span id="cv-pj-heading">{pjs.heading}</span>|{" "}
+                <span id="cv-tech-used">{pjs.tech}</span>
+              </h1>
+              <ul className="cv-desc">
+                <ListItem text={pjs.description} />
+              </ul>
+            </div>
+          ))}
       </div>
       <div id="cv-achievements">
         <h3>Achievements</h3>
         <hr />
+        {cvData.achievements?.length > 0 &&
+          cvData.achievements.map((achvs, index) => (
+            <div className="cv-achv-item" key={index}>
+              <h1 id="cv-achv-heading">{achvs.heading}</h1>
+              <ul className="cv-desc">
+                <ListItem text={achvs.description} />
+              </ul>
+            </div>
+          ))}
       </div>
       <div id="cv-skills">
         <h3>Skills</h3>
         <hr />
+        <div id="skills">
+          <div id="tech-skills">
+            <h5>Technical Skills:</h5>
+            <p>{cvData.skills.techskills}</p>
+          </div>
+          <div id="frameworks">
+            <h5>Frameworks:</h5>
+            <p>{cvData.skills.frameworks}</p>
+          </div>
+
+          <div id="tools">
+            <h5>Developer Tools:</h5>
+            <p>{cvData.skills.tools}</p>
+          </div>
+          <div id="libs">
+            <h5>Libraries:</h5>
+            <p>{cvData.skills.libraries}</p>
+          </div>
+        </div>
       </div>
     </div>
   );
