@@ -2,6 +2,10 @@
 
 A dynamic CV generator built with React, allowing users to input their details and generate a formatted resume.
 
+### Live Demo
+
+[View the Project](https://cvparser.netlify.app/)
+
 ## Features
 
 - Add and manage personal details, education, projects, achievements, and skills.
